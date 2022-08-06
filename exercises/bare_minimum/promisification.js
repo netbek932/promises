@@ -19,11 +19,14 @@ var getGitHubProfile = function (user, callback) {
     if (err) {
       callback(err, null);
     } else if (body.message) {
+      console.log('BODY MESSAGE', body.message);
       callback(
         new Error('Failed to get GitHub profile: ' + body.message),
         null
       );
     } else {
+      console.log('BODY', body);
+      console.log(callback(null, (body)));
       callback(null, body);
     }
   });
